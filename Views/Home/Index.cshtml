@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to the Products and Categories Application Done By Diksha Salve</h1>
+    <p>Manage Categories and Products efficiently!</p>
+
+    <div style="margin-top: 20px;">
+        <a asp-controller="Category" asp-action="Index" class="btn btn-primary btn-lg" style="margin-right: 10px;">
+            Manage Categories
+        </a>
+        <a asp-controller="Product" asp-action="Index" class="btn btn-success btn-lg">
+            Manage Products
+        </a>
+    </div>
+</div>

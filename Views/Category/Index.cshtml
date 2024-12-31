@@ -1,0 +1,30 @@
+﻿@model IEnumerable<NimapCrud.Models.Category>
+
+<h1>Category List</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Sr. No.</th>
+            <th>CategoryName</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model.Select((value, index) => new { value, index }))
+        {
+            <tr>
+                <td>@(category.index + 1)</td> <!-- Display Sr. No. -->
+                <td>@category.value.Name</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@category.value.Id" class="btn btn-warning btn-sm">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@category.value.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="mt-3">
+    <a asp-action="Create" class="btn btn-primary btn-lg">Add New Category</a>
+</div>

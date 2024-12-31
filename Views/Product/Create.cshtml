@@ -1,0 +1,37 @@
+﻿@model NimapCrud.Models.Product
+
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CategoryId" class="control-label"></label>
+        <!-- Use ViewBag.Categories for the dropdown list -->
+        <select asp-for="CategoryId" class="form-control" asp-items="@(new SelectList(ViewBag.Categories, "Id", "Name"))"></select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+        <a href="@Url.Action("Index", "Product")" class="btn btn-secondary">Back</a>
+    </div>
+</form>
+
+@* @section Scripts { *@
+@*     @await Html.RenderPartialAsync("_ValidationScriptsPartial"); *@
+@* } *@
+
+       @section Scripts {
+@{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}
